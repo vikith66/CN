@@ -7,13 +7,11 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-#define BUFFER_SIZE 1024
-
 int main() {
     char src[100], dest[100];
     int fdsrc, fdest;
     ssize_t bytesRead, bytesWritten;
-    char buffer[BUFFER_SIZE];
+    char buffer[1024];
 
     printf("Enter source file name: ");
     scanf("%s", src);
