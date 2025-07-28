@@ -1,14 +1,15 @@
+//Vikith B Kotian
+//240970107
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/wait.h>
 
-// Function to sort the array (Bubble Sort)
 void sortArray(int arr[], int n) {
     for (int i = 0; i < n-1; i++) {
         for (int j = 0; j < n-i-1; j++) {
             if (arr[j] > arr[j+1]) {
-                // Swap
                 int temp = arr[j];
                 arr[j] = arr[j+1];
                 arr[j+1] = temp;
@@ -20,26 +21,23 @@ void sortArray(int arr[], int n) {
 int main() {
     int n;
 
-    // Accept array size
     printf("Enter number of elements: ");
     scanf("%d", &n);
 
     int arr[n];
 
-    // Accept array elements
     printf("Enter %d elements:\n", n);
     for (int i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
     }
 
-    pid_t pid = fork(); // Create child process
+    pid_t pid = fork(); 
 
     if (pid < 0) {
         perror("Fork failed");
         exit(1);
     }
     else if (pid == 0) {
-        // Child process
         printf("\nChild Process: Sorting the array...\n");
         sortArray(arr, n);
         printf("Sorted Array (Child): ");
@@ -49,8 +47,7 @@ int main() {
         printf("\n");
     }
     else {
-        // Parent process
-        wait(NULL);  // Wait for child to finish
+        wait(NULL);  
         printf("Parent Process: Child finished execution.\n");
     }
 
