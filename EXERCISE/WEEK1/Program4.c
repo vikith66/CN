@@ -1,3 +1,6 @@
+//Vikith B Kotian
+//240970107
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -5,31 +8,25 @@
 
 int main() {
     int n, key;
-
-    // Accept size of array
     printf("Enter number of elements: ");
     scanf("%d", &n);
 
     int arr[n];
-
-    // Accept array elements
     printf("Enter %d elements:\n", n);
     for (int i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
     }
 
-    // Accept key to search
     printf("Enter element to search: ");
     scanf("%d", &key);
 
-    pid_t pid = fork(); // Create a child process
+    pid_t pid = fork(); 
 
     if (pid < 0) {
         perror("Fork failed");
         exit(1);
     }
     else if (pid == 0) {
-        // Child process
         printf("\nChild Process: Searching for %d...\n", key);
         int found = 0;
         for (int i = 0; i < n; i++) {
@@ -44,8 +41,7 @@ int main() {
         }
     }
     else {
-        // Parent process
-        wait(NULL);  // Wait for child to complete
+        wait(NULL); 
         printf("Parent Process: Child process completed.\n");
     }
 
