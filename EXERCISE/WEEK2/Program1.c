@@ -1,5 +1,5 @@
 // 240970107: Vikith B Kotian
-// C Program: Parent sends string to child using pipe
+// print number of characters and digits in the string.
 
 #include <stdio.h>
 #include <stdlib.h>
