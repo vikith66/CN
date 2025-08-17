@@ -1,3 +1,6 @@
+// 240970107: Vikith B Kotian
+// Check the string whether it is palindrome or not
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
