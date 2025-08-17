@@ -21,7 +21,6 @@ int main() {
     }
 
     if (pid > 0) {
-        // -------- Parent --------
         close(p1[0]); 
         close(p2[1]); 
 
@@ -59,7 +58,6 @@ int main() {
         close(p1[1]);
         close(p2[0]);
     } else {
-        // -------- Child --------
         close(p1[1]); 
         close(p2[0]); 
 
