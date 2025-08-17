@@ -21,33 +21,43 @@ int main() {
     key = 1001;
     msgid = msgget(key, 0666 | IPC_CREAT);
 
-    message.msg_type = 1;
-    printf("\nEnter the size of the array: ");
-    scanf("%d", &message.a.n);
+    msgrcv(msgid, &message, sizeof(message.a), 1, 0);
 
-    printf("Enter the array elements: ");
-    for (int i = 0; i < message.a.n; i++) {
-        scanf("%d", &message.a.arr[i]);
-    }
-
-    printf("\nArray Sent: ");
+    printf("\nArray received: ");
     for (int i = 0; i < message.a.n; i++) {
         printf("%d ", message.a.arr[i]);
     }
 
-    msgsnd(msgid, &message, sizeof(message.a), 0);
-    printf("\nData sent successfully\n");
+    // Sorting
+    for (int i = 0; i < message.a.n - 1; i++) {
+        for (int j = i + 1; j < message.a.n; j++) {
+            if (message.a.arr[i] > message.a.arr[j]) {
+                int temp = message.a.arr[i];
+                message.a.arr[i] = message.a.arr[j];
+                message.a.arr[j] = temp;
+            }
+        }
+    }
 
+    printf("\nSorted Array: ");
+    for (int i = 0; i < message.a.n; i++) {
+        printf("%d ", message.a.arr[i]);
+    }
+
+    // Remove first queue
+    msgctl(msgid, IPC_RMID, NULL);
+
+    // Send sorted array back
     key = 1002;
     msgid = msgget(key, 0666 | IPC_CREAT);
 
-    msgrcv(msgid, &message, sizeof(message.a), 1, 0);
+    message.msg_type = 1;
+    msgsnd(msgid, &message, sizeof(message.a), 0);
 
-    printf("\nSorted Array received: ");
-    for (int i = 0; i < message.a.n; i++) {
-        printf("%d ", message.a.arr[i]);
-    }
-    printf("\n");
+    printf("\nSorted Array sent back to client\n");
+
+    // Remove second queue
+    msgctl(msgid, IPC_RMID, NULL);
 
     return 0;
 }
