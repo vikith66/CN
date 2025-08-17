@@ -13,8 +13,8 @@ struct User {
 int main() {
     // Pre-stored user data
     struct User users[3] = {
-        {"alice", "1234"},
-        {"bob", "abcd"},
+        {"rahul", "1234"},
+        {"bhavish", "abcd"},
         {"vikith", "mca2025"}
     };
 
