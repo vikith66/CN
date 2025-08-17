@@ -1,3 +1,6 @@
+// 240970107: Vikith B Kotian
+// Accept details of a student
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
