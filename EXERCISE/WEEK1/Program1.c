@@ -29,7 +29,7 @@ int main() {
         printf("Error Opening The File");
     }
 
-    while ((bytesRead = read(fdsrc, buffer, BUFFER_SIZE)) > 0) {
+    while ((bytesRead = read(fdsrc, buffer, 1024)) > 0) {
         bytesWritten = write(fdest, buffer, bytesRead);
     }
 
