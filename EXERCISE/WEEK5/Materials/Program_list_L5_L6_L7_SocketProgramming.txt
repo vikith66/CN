@@ -1,0 +1,15 @@
+L5 Socket Programming-TCP 
+1. Write a client-server chat socket program using TCP protocol to chat in infinite loop until client ends the chat session.  
+2. Write a client-server socket program using TCP. Client accepts an IP address and sends to server. Server receives IP address and displays it. Server process the IP address to identify the class of IP address (A, B, C, D, E), default mask, network address, broadcast address and Server sends all these to the client via socket. Client displays the result.  
+ 3. Write a client-server socket program using TCP. Assume that Server has pre-stored information about five Account number, PIN and Balance in a 3-dimensional array. Client accepts account number, pin and withdrawal amount and sends to Server, if account holder is valid then performs withdrawal operations, provided that enough balance is available otherwise display invalid Accno/PIN or No enough Balance. Assume that account has to maintain 1000 minimum balance. If transaction is successful then  server display- “Withdrawal is successful and new balance:<New Balance value>” and same is sent to Client to display. 
+
+
+L6  Socket Programming-UDP 
+1. Write a client-server chat socket program using UDP protocol to chat in infinite loop until client ends the chat session.  
+2. Write a client-server socket program using UDP. Client accepts an IP address and sends to server. Server receives IP address and displays it. Server process the IP address to identify the class of IP address (A, B, C, D, E). Server sends class and default mask to the client via socket. Client displays the result.  
+ 3. Write a client-server socket program using UDP to copy the content of a file existing at server to the client. Client accepts file name and sends to the server. Server reads 10 characters at a time from the file and sends to client. Client displays the data received and writes to another local file until entire file at   server is copied to client’s new local file. If file name doesn’t exist at the server, server sends “file-no found” message to the client and client ends the communication. 
+
+L7  Socket Programming- Multi Client 
+1. Write a multi client-server chat socket program using TCP protocol to chat in infinite loop until client ends the chat session.
+ 2. Write a multi client-server socket program using TCP. Client accepts an IP address and sends to server. Server receives IP address and displays it. Server process the IP address to identify the class of IP address (A, B, C, D, E). Server sends class and default mask to the client via socket. Client displays the result. 
+ 3. Write a multi client-server socket program using TCP. Client accepts and sends coefficients (a, b, c) of a quadratic equation to server. Server calculates roots of quadratic equation and return roots to client. Client displays the roots of quadratic equation. Consider all possibilities of a, b, c values. 
